@@ -1,14 +1,22 @@
-run:
-	@echo "🏗️ Génération des fichiers Templ..."
+# Nom du binaire
+BINARY_NAME=tmp/main
+
+.PHONY: all build run clean dev
+
+# Commande par défaut utilisée par Air
+build:
+	@echo "🏗️  Génération Templ..."
 	@templ generate
-	@echo "🎨 Compilation ultra-rapide du CSS (Tailwind v4)..."
+	@echo "🎨 Compilation Tailwind v4..."
 	@npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/style.css
-	@echo "🚀 Démarrage du serveur Go..."
-	@go run cmd/web/main.go
+	@echo "🐹 Build Go..."
+	@go build -o $(BINARY_NAME) ./cmd/web/main.go
+
+# Lancer Air pour le live-reload
 dev:
 	@air
 
-build:
-	@templ generate
-	@npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/style.css
-	@go build -o site-bin ./cmd/web/main.go
+# Nettoyage
+clean:
+	@rm -rf tmp
+	@rm -f static/css/style.css
