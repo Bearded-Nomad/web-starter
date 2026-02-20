@@ -1,12 +1,24 @@
 root = "."
-testdata_dir = "testdata"
 tmp_dir = "tmp"
 
 [build]
+  # On enchaîne les commandes proprement
   cmd = "templ generate && npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/style.css && go build -o ./tmp/main ./cmd/web/main.go"
 
+  # Le binaire à exécuter après le build
   bin = "./tmp/main"
 
+  # On ne surveille QUE ces extensions
   include_ext = ["go", "templ", "css", "html"]
-  exclude_dir = ["assets", "tmp", "vendor", "node_modules"]
+
+  # TRÈS IMPORTANT : On ignore node_modules et .git
+  exclude_dir = ["node_modules", "tmp", ".git", "static"]
+
+  # Délai pour laisser le temps à GoLand de finir l'upload SSH
   delay = 1000
+
+  # On arrête l'ancien binaire si le nouveau build échoue
+  stop_on_error = true
+
+[log]
+  time = true
