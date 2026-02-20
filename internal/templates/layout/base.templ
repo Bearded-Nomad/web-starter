@@ -1,0 +1,23 @@
+package layout
+
+templ Base(title string) {
+	<!DOCTYPE html>
+	<html lang="fr" data-theme="corporate"> // data-theme gère les couleurs DaisyUI
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>{ title }</title>
+		
+		<link href="/static/css/style.css" rel="stylesheet"/>
+		
+		<script src="https://unpkg.com/htmx.org@1.9.10" defer></script>
+	</head>
+	<body class="min-h-screen flex flex-col bg-base-100 text-base-content">
+		
+		<main class="flex-grow">
+			{ children... }
+		</main>
+
+	</body>
+	</html>
+}

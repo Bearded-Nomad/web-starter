@@ -1,0 +1,19 @@
+package pages
+
+import "github.com/bearded-nomad/web-starter/internal/templates/layout"
+
+templ Home() {
+	@layout.Base("Accueil - Site Artisan") {
+		
+		<div class="hero min-h-screen bg-base-200">
+			<div class="hero-content text-center">
+				<div class="max-w-md">
+					<h1 class="text-5xl font-bold">L'Usine tourne !</h1>
+					<p class="py-6">Ton starter kit Go + Templ + Tailwind v4 + DaisyUI est parfaitement configuré.</p>
+					<button class="btn btn-primary">C'est parti</button>
+				</div>
+			</div>
+		</div>
+
+	}
+}
