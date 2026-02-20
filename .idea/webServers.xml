@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a3459dd3-c5db-46a6-875b-6dc68abe8c61" name="vps">
+        <fileTransfer rootFolder="/home/maxless" accessType="SFTP" host="51.91.159.7" port="22" sshConfigId="71f1d882-2693-4200-9a42-6752b88bae76" sshConfig="maxless@51.91.159.7:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,12 @@
+root = "."
+testdata_dir = "testdata"
+tmp_dir = "tmp"
+
+[build]
+  cmd = "templ generate && npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/style.css && go build -o ./tmp/main ./cmd/web/main.go"
+
+  bin = "./tmp/main"
+
+  include_ext = ["go", "templ", "css", "html"]
+  exclude_dir = ["assets", "tmp", "vendor", "node_modules"]
+  delay = 1000
