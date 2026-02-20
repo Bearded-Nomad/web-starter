@@ -2,11 +2,12 @@ root = "."
 tmp_dir = "tmp"
 
 [build]
-  # On appelle le Makefile pour centraliser la logique
   cmd = "make build"
   bin = "./tmp/main"
   delay = 1000
-  exclude_dir = ["node_modules", "tmp", ".git", "static/css"]
+  exclude_dir = ["node_modules", "tmp", ".git", "static"]
+  exclude_file = ["static/css/style.css"]
+  exclude_regex = ["_templ.go"]
   include_ext = ["go", "templ", "css", "html"]
   stop_on_error = true
 
