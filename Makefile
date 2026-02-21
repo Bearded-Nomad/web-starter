@@ -8,7 +8,7 @@ build:
 	@echo "🏗️  Génération Templ..."
 	@templ generate
 	@echo "🎨 Compilation Tailwind v4..."
-	@./node_modules/.bin/tailwindcss -i ./static/css/input.css -o ./static/css/style.css
+	@npx tailwindcss -i ./static/css/input.css -o ./static/css/style.css
 	@echo "🐹 Build Go..."
 	@go build -o $(BINARY_NAME) ./cmd/web/main.go
 

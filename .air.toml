@@ -3,7 +3,7 @@ tmp_dir = "tmp"
 
 [build]
   cmd = "make build"
-  bin = "./tmp/main"
+  entrypoint = "./tmp/main"
   delay = 1000
   exclude_dir = ["node_modules", "tmp", ".git", "static"]
   exclude_file = ["static/css/style.css"]
