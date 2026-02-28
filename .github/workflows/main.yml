@@ -16,9 +16,15 @@ jobs:
 
       - name: Build
         run: |
-          go install github.com/a-h/templ/cmd/templ@latest
-          $(go env GOPATH)/bin/templ generate
-          go build -o main ./cmd/web/...
+            go install github.com/a-h/templ/cmd/templ@latest
+            curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64
+            chmod +x tailwindcss-linux-x64
+            mv tailwindcss-linux-x64 tailwindcss
+            $(go env GOPATH)/bin/templ generate
+            ./tailwindcss -i ./assets/input.css -o ./assets/style.css --minify
+            
+            go mod tidy
+            go build -o main ./cmd/web/...
 
       - name: Deploy to VPS via SSH
         uses: appleboy/scp-action@master
