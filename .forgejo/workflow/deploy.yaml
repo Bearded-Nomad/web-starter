@@ -7,7 +7,7 @@ on:
 jobs:
   publish:
     # Utilise 'docker' ou 'ubuntu-latest', ce sont les labels standards
-    runs-on: ubuntu-latest
+    runs-on: docker
     steps:
       - name: Checkout
         uses: actions/checkout@v4
