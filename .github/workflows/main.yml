@@ -21,7 +21,7 @@ jobs:
             chmod +x tailwindcss-linux-x64
             mv tailwindcss-linux-x64 tailwindcss
             $(go env GOPATH)/bin/templ generate
-            ./tailwindcss -i ./assets/input.css -o ./assets/style.css --minify
+            ./tailwindcss -i ./static/css/input.css -o ./static/css/style.css --minify
             
             go mod tidy
             go build -o main ./cmd/web/...
