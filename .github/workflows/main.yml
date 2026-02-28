@@ -18,7 +18,7 @@ jobs:
         run: |
           go install github.com/a-h/templ/cmd/templ@latest
           $(go env GOPATH)/bin/templ generate
-          go build -o main .
+          go build -o main ./cmd/web/...
 
       - name: Deploy to VPS via SSH
         uses: appleboy/scp-action@master
