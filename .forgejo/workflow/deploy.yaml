@@ -16,3 +16,6 @@ jobs:
 
       - name: Build Binary
         run: go build -o main .
+
+      - name: Deliver Binary
+        run: cp main /output/main
