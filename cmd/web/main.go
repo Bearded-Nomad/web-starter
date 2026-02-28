@@ -25,6 +25,7 @@ func main() {
 
 	// 3. Pages
 	mux.Handle("/", templ.Handler(pages.Home()))
+	mux.Handle("/services", templ.Handler(pages.ServicesSection()))
 	// mux.Handle("/contact", templ.Handler(pages.Contact())) // Exemple pour plus tard
 
 	// 4. Lancement

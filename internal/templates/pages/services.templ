@@ -1,0 +1,45 @@
+package pages
+
+import (
+    "github.com/bearded-nomad/web-starter/internal/templates/ui"
+    "github.com/bearded-nomad/web-starter/internal/templates/components/card"
+    "github.com/bearded-nomad/web-starter/internal/templates/layout"
+)
+
+templ ServicesSection() {
+    @layout.Base("Nos Services") {
+    <section class={ ui.GetContainer(ui.MaxWidthLG), "py-16" }>
+
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Nos Services</h2>
+            // 2. Un texte optimisé pour la lecture
+            <p class={ ui.GetProse() }>
+                Découvrez comment nous pouvons vous accompagner dans vos projets.
+            </p>
+        </div>
+
+        // 3. Une grille qui passe toute seule de 1 à 3 colonnes
+        <div class={ ui.GetGrid(3, ui.SizeLG) }>
+            @card.Card(card.Props{Style: ui.StyleGlass, Size: ui.SizeLG}) {
+                @card.Body() {
+                    @card.Title() { Service }
+                    <p>Description du service. Again</p>
+                }
+            }
+            @card.Card(card.Props{Style: ui.StyleGlass, Size: ui.SizeLG}) {
+                            @card.Body() {
+                                @card.Title() { Service }
+                                <p>Description du service. Again</p>
+                            }
+                        }
+            @card.Card(card.Props{Style: ui.StyleGlass, Size: ui.SizeLG}) {
+                            @card.Body() {
+                                 @card.Title() { Service }
+                                 <p>Description du service. Again</p>
+                            }
+                        }
+        </div>
+
+    </section>
+    }
+}

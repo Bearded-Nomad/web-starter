@@ -1,0 +1,18 @@
+name: Build and Deploy Starter Kit
+on: [push]
+
+jobs:
+  publish:
+    runs-on: go-latest # On utilise le label qu'on a mis dans config.yaml
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Templ
+        run: go install github.com/a-h/templ/cmd/templ@latest
+
+      - name: Generate Templ files
+        run: $(go env GOPATH)/bin/templ generate
+
+      - name: Build Binary
+        run: go build -o main .

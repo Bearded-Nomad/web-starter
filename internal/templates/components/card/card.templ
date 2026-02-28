@@ -1,0 +1,52 @@
+package card
+
+import "github.com/bearded-nomad/web-starter/internal/templates/ui"
+
+type Props struct {
+    ContentColor ui.ContentColor
+    Color ui.Color
+    Size  ui.Size
+    Style ui.Style //Dash Border
+	Class string
+	ID    string
+}
+
+templ Card(props ...Props) {
+	{{ p := Props{Size: ui.SizeMD, Style: ui.StyleBorder} }}
+	if len(props) > 0 {
+	    {{ p = props[0] }}
+	}
+
+	<div
+		if p.ID != "" {
+		    id={ p.ID }
+		}
+		class={ ui.TwMerge(
+		        "card transition-all duration-200",
+		        ui.GetStyle(p.Style),
+		        )
+		       }
+	>
+		{ children... }
+	</div>
+}
+
+templ Body(props ...Props) {
+	{{ p := Props{} }}
+	if len(props) > 0 {
+	    {{ p = props[0] }}
+	}
+	<div class={ ui.TwMerge("card-body", p.Class) }>
+		{ children... }
+	</div>
+}
+
+templ Title(props ...Props) {
+	{{ p := Props{} }}
+	if len(props) > 0 {
+	    {{ p = props[0] }}
+	}
+	<h2 class={ ui.TwMerge("card-title text-xl font-bold", p.Class) }>
+		{ children... }
+	</h2>
+}
