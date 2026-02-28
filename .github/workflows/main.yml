@@ -35,3 +35,14 @@ jobs:
           port: 22
           source: "main,static/css/style.css"
           target: "/var/www/usine"
+
+      - name: Restart Usine Service
+        uses: appleboy/ssh-action@master
+        with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.SSH_KEY }}
+            port: 22
+            script: |
+              chmod +x /var/www/usine/main
+              sudo systemctl restart usine
