@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   publish:
-    runs-on: go-latest # On utilise le label qu'on a mis dans config.yaml
+    runs-on: go-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
