@@ -1,0 +1,37 @@
+package button
+
+import "github.com/bearded-nomad/web-starter/internal/templates/ui"
+
+type Props struct {
+    Color           ui.Color
+    Size            ui.Size
+    Style           ui.Style //Outline Dash Soft Ghost
+    Modifier        ui.Modifier //Wide Block Circle Square
+    Behavior        ui.Behavior
+    Class           string
+    ID              string
+}
+
+templ Button(content string, props ...Props) {
+    {{ p := Props{Size: ui.SizeMD, Color: ui.ColorPrimary} }}
+    if len(props) > 0 {
+        {{ p = props[0] }}
+    }
+
+    <div
+        if p.ID != "" {
+            id={ p.ID }
+        }
+        class={ ui.TwMerge(
+                "btn",
+                ui.GetStyle(p.Style, "btn"),
+                ui.GetBehavior(p.Behavior, "btn"),
+                ui.GetModifier(p.Modifier, "btn"),
+                ui.GetColor(p.Color, "btn"),
+                )
+               }
+        >
+            { content }
+        </div>
+
+}

@@ -13,8 +13,10 @@ func GetStyle(v Style, component ...string) string {
 		return prefix + "-ghost bg-base-200/50 border-none"
 	case StyleGlass:
 		return "glass backdrop-blur-md"
+	case StyleBorder:
+		return "border border-base-300"
 	default:
-		return "bg-base-200 border border-base-200"
+		return ""
 	}
 }
 
@@ -119,4 +121,25 @@ func GetImageRatio(r Ratio, isCover bool) string {
 func GetProse() string {
 	// Limite la largeur du texte, améliore l'interligne et la couleur
 	return "max-w-prose mx-auto leading-relaxed text-base-content/80 text-lg"
+}
+
+func GetBehavior(behavior Behavior, prefix string) string {
+	if prefix != "btn" {
+		return ""
+	}
+	return prefix + "-" + string(behavior)
+}
+
+func GetModifier(modifier Modifier, prefix string) string {
+	if prefix != "btn" {
+		return ""
+	}
+	return prefix + "-" + string(modifier)
+}
+
+func GetColor(color Color, prefix string) string {
+	if prefix != "btn" {
+		return ""
+	}
+	return prefix + "-" + string(color)
 }

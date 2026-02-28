@@ -17,6 +17,7 @@ tmp_dir = "tmp"
 
 [screen]
   clear_on_rebuild = true
+
 [proxy]
   enabled = true
   proxy_port = 9080

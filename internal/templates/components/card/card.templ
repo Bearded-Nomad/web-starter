@@ -24,6 +24,7 @@ templ Card(props ...Props) {
 		class={ ui.TwMerge(
 		        "card transition-all duration-200",
 		        ui.GetStyle(p.Style),
+		        "bg-" + string(p.Color),
 		        )
 		       }
 	>

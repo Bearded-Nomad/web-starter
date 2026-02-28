@@ -47,6 +47,7 @@ func Card(props ...Props) templ.Component {
 		var templ_7745c5c3_Var2 = []any{ui.TwMerge(
 			"card transition-all duration-200",
 			ui.GetStyle(p.Style),
+			"bg-"+string(p.Color),
 		)}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {

@@ -2,3 +2,6 @@
 @plugin "daisyui";
 @source "../../internal/templates/**/*.templ";
 
+@plugin "daisyui" {
+    themes: all;
+}

@@ -43,7 +43,7 @@ func Home() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"hero min-h-screen bg-base-200\"><div class=\"hero-content text-center\"><div class=\"max-w-md\"><h1 class=\"text-5xl font-bold\">L'Usine tourne !</h1><p class=\"py-6\">Ton starter kit Go + Templ + Tailwind v4 + DaisyUI est parfaitement configuré.</p><button class=\"btn btn-primary\">C'est parti</button></div></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"hero min-h-screen bg-base-200\"><div class=\"hero-content text-center\"><div class=\"max-w-md\"><h1 class=\"text-5xl font-bold\">L'Usine tourne !</h1><p class=\"py-6\">Ton starter kit Go + Templ + Tailwind v4 + DaisyUI est parfaitement configuré. Maybe???</p><button class=\"btn btn-info\">C'est parti</button></div></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

@@ -9,6 +9,7 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
+	"github.com/bearded-nomad/web-starter/internal/templates/components/button"
 	"github.com/bearded-nomad/web-starter/internal/templates/components/card"
 	"github.com/bearded-nomad/web-starter/internal/templates/layout"
 	"github.com/bearded-nomad/web-starter/internal/templates/ui"
@@ -163,6 +164,10 @@ func ServicesSection() templ.Component {
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
+					templ_7745c5c3_Err = button.Button("Achète!!", button.Props{Color: ui.ColorAccent, Behavior: ui.BehaviorActive}).Render(ctx, templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
 					return nil
 				})
 				templ_7745c5c3_Err = card.Body().Render(templ.WithChildren(ctx, templ_7745c5c3_Var10), templ_7745c5c3_Buffer)
@@ -171,7 +176,7 @@ func ServicesSection() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = card.Card(card.Props{Style: ui.StyleGlass, Size: ui.SizeLG}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var9), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = card.Card(card.Props{Size: ui.SizeLG, Style: ui.StyleBorder}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var9), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
