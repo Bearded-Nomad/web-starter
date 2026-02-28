@@ -17,7 +17,6 @@ jobs:
       - name: Build
         run: |
           go install github.com/a-h/templ/cmd/templ@latest
-          # Si templ n'est pas dans le PATH du runner, on utilise le chemin complet
           $(go env GOPATH)/bin/templ generate
           go build -o main .
 
