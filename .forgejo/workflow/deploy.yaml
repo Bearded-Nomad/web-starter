@@ -1,21 +1,27 @@
-name: Build and Deploy Starter Kit
-on: [push]
+name: Build and Deploy
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   publish:
-    runs-on: docker
+    # Utilise 'docker' ou 'ubuntu-latest', ce sont les labels standards
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Templ
-        run: go install github.com/a-h/templ/cmd/templ@latest
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
 
-      - name: Generate Templ files
-        run: $(go env GOPATH)/bin/templ generate
+      - name: Build
+        run: |
+          go install github.com/a-h/templ/cmd/templ@latest
+          $(go env GOPATH)/bin/templ generate
+          go build -o main .
 
-      - name: Build Binary
-        run: go build -o main .
-
-      - name: Deliver Binary
-        run: cp main /output/main
+      - name: Deliver
+        run: cp main /output/main/output/main
