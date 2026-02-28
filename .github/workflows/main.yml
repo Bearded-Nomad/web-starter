@@ -33,5 +33,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
-          source: "main,assets/style.css"
+          source: "main,static/css/style.css"
           target: "/var/www/usine"
